@@ -118,8 +118,12 @@ body,div,p,h1,h2,h3,h4,h5,h5{
  .blog-footer p:last-child {
    margin-bottom: 0;
  }
- 
-
+ /*
+ cart page css
+ */
+table.cart input.quantity{
+  width: 80px;
+}
 @media (min-width: 768px) {
    .bd-placeholder-img-lg {
       font-size: 3.5rem;
