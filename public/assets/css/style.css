@@ -1,3 +1,12 @@
+@font-face {
+  font-family: vazirmatn;
+  src: url('../fonts/Vazirmatn-Regular.woff2');
+}
+
+body,div,p,h1,h2,h3,h4,h5,h5{
+  font-family: vazirmatn;
+}
+
 .bd-placeholder-img {
    font-size: 1.125rem;
    text-anchor: middle;
@@ -14,7 +23,7 @@
  }
  
  .blog-header-logo {
-   font-family: Amiri, Georgia, "Times New Roman", serif;
+   font-family: vazirmatn, Georgia, "Times New Roman", serif;
    font-size: 2.25rem;
  }
  
@@ -23,7 +32,7 @@
  }
  
  h1, h2, h3, h4, h5, h6 {
-   font-family: Amiri, Georgia, "Times New Roman", serif;
+   font-family: vazirmatn, Georgia, "Times New Roman", serif;
  }
  
  .display-4 {
