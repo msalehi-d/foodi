@@ -1,6 +1,9 @@
 <?php
 
+use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\FoodController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,3 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/category/{category:slug}',[FoodController::class, 'category'])->name('food.category');
+Route::get('/food/{food}',[FoodController::class, 'show'])->name('food.show');
+
+Route::post('order/add/{food}',[OrderController::class, 'add'])->name('order.add');
