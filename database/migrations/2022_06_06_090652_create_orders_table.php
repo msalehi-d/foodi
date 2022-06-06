@@ -17,6 +17,7 @@ class CreateOrdersTable extends Migration
             $table->id();
             $table->unsignedTinyInteger('status')->default(config('constants.orderStatus.pending'));
             $table->string('address')->default('');
+            $table->unsignedBigInteger('total_price')->default(0);
             $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
