@@ -25,4 +25,18 @@ class Order extends Model
         }
         return $total;
     }
+    public function getStatusTextAttribute()
+    {
+        switch ($this->status) {
+            case config('constants.orderStatus.cancelled'):
+                return 'لغو شده';
+            case config('constants.orderStatus.processing'):
+                return 'در حال انجام';
+            case config('constants.orderStatus.completed'):
+                return 'تکمیل شده';
+            case config('constants.orderStatus.pending'):
+                return 'در انتظار';
+        }
+        return 'نامشخص';
+    }
 }

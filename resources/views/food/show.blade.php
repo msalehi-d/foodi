@@ -2,7 +2,6 @@
 @section('title',$food->name)
 @section('contents')
 <div class="row mb-2">
-
    <div class="col-md-12">
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
          <div class="col p-4 d-flex flex-column position-static">
@@ -19,12 +18,12 @@
                {{number_format($food->active_price)}}
             </div>
             <div>
-            موجودی: 
+               موجودی:
                {{$food->stock}}
 
             </div>
             <div>
-               <form method="POST" action="{{route('order.add',$food)}}">
+               <form method="POST" action="{{route('customer.order.add',$food)}}">
                   @csrf
                   <button type="submit" class="btn btn-primary">افزودن به سبد</button>
                </form>

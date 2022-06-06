@@ -2,9 +2,16 @@
 @section('title','Login')
 @section('contents')
 <div class="row mb-2 justify-content-center">
-   <form class="col-lg-4" method="POST">
+   <form class="col-lg-4" method="POST" action="{{route('login.check')}}">
       @csrf
       <div class="mb-3">
+         @error('incorrect')
+         <div class="text-danger">
+            ({!! session('errors')->first('incorrect') !!})
+         </div>
+         @enderror
+
+
          <label for="email" class="form-label">ایمیل
             @error('email')
             <small class="text-danger">
@@ -18,14 +25,14 @@
          <label for="password" class="form-label">پسورد
             @error('password')
             <small class="text-danger">
-              ( {{$message}})
+               ( {{$message}})
             </small>
             @enderror
          </label>
          <input name="password" type="password" class="form-control" id="password">
       </div>
       <div class="form-check mb-3">
-         <input name="remember" class="form-check-input" type="checkbox" value="" id="remember">
+         <input name="remember" class="form-check-input" type="checkbox" value="remember" id="remember">
          <label class="form-check-label" for="remember">
             مرا به یاد بسپار
          </label>

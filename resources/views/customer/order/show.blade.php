@@ -2,12 +2,16 @@
 @section('title','سفارش شما')
 @section('contents')
 <div class="row mb-2">
-
+   @error('overAdd')
+   <div class="text-danger">
+      {!! session('errors')->first('overAdd') !!}
+   </div>
+   @enderror
    <div class="col-md-8 border p-2">
       <h3 class="p-2">
          سفارش شما
       </h3>
-      <form action="{{route('order.update',$order)}}" method="POST">
+      <form action="{{route('customer.order.update',$order)}}" method="POST">
          @csrf
          @method('PATCH')
          <table class="table cart">
@@ -41,7 +45,7 @@
    <div class="col-md-4 border p-2">
       مجموع:
       {{number_format($order->total)}}
-      <form method="POST" action="{{route('order.submit',$order)}}">
+      <form method="POST" action="{{route('customer.order.submit',$order)}}">
          @csrf
          <button type="submit" class="btn btn-primary">ثبت سفارش</button>
       </form>
