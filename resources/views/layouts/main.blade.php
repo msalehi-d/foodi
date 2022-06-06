@@ -20,10 +20,10 @@
       <header class="blog-header py-3">
          <div class="row flex-nowrap justify-content-between align-items-center">
             <div class="col-4 pt-1">
-               <a class="link-secondary" href="#">الإشتراك في النشرة البريدية</a>
+               <input class="form-control" type="text" name="search" placeholder="جستجو" id="">
             </div>
             <div class="col-4 text-center">
-               <a class="blog-header-logo text-dark" href="#">كبير</a>
+               <a class="blog-header-logo text-dark text-decoration-none" href="#">Foodi</a>
             </div>
             <div class="col-4 d-flex justify-content-end align-items-center">
                <a class="link-secondary" href="#" aria-label="بحث">
@@ -33,25 +33,20 @@
                      <path d="M21 21l-5.2-5.2"></path>
                   </svg>
                </a>
-               <a class="btn btn-sm btn-outline-secondary" href="#">إنشاء حساب</a>
+               @auth
+               <a class="btn btn-sm btn-outline-secondary" href="#">حساب کاربری</a>
+               @else
+               <a class="btn btn-sm btn-outline-secondary" href="{{route('login')}}">ورود</a>
+               @endauth
             </div>
          </div>
       </header>
 
       <div class="nav-scroller py-1 mb-2">
          <nav class="nav d-flex justify-content-between">
-            <a class="p-2 link-secondary" href="#">العالم</a>
-            <a class="p-2 link-secondary" href="#">الولايات المتحدة</a>
-            <a class="p-2 link-secondary" href="#">التقنية</a>
-            <a class="p-2 link-secondary" href="#">التصميم</a>
-            <a class="p-2 link-secondary" href="#">الحضارة</a>
-            <a class="p-2 link-secondary" href="#">المال والأعمال</a>
-            <a class="p-2 link-secondary" href="#">السياسة</a>
-            <a class="p-2 link-secondary" href="#">الرأي العام</a>
-            <a class="p-2 link-secondary" href="#">العلوم</a>
-            <a class="p-2 link-secondary" href="#">الصحة</a>
-            <a class="p-2 link-secondary" href="#">الموضة</a>
-            <a class="p-2 link-secondary" href="#">السفر</a>
+            @foreach ($categories as $menuCategory)
+            <a class="@isset($category) @if($category->id == $menuCategory->id) bg-primary text-white rounded @endif @endisset p-2 text-decoration-none link-secondary" href="{{route('food.category',$menuCategory)}}">{{$menuCategory->title}}</a>
+            @endforeach
          </nav>
       </div>
    </div>

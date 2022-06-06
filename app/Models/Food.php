@@ -20,6 +20,13 @@ class Food extends Model
         if ($this->image)
             return $this->image;
 
-            return config('app.asset_url').'/images/no-image.png';
+        return config('app.asset_url') . '/images/no-image.png';
+    }
+    public function getActivePriceAttribute()
+    {
+        if ($this->sale_price)
+            return $this->sale_price;
+
+        return $this->regular_price;
     }
 }
