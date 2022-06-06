@@ -22,4 +22,5 @@ class FoodController extends Controller
         return view('food.category', $data);
     }
 
+
 }
