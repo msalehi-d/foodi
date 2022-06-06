@@ -9,4 +9,9 @@ class Food extends Model
 {
     protected $table = 'foods';
     use HasFactory;
+
+    public function category()
+    {
+        return $this->belongsTo(category::class,'category_id','id');
+    }
 }
