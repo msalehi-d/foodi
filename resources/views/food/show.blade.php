@@ -19,7 +19,12 @@
                {{number_format($food->active_price)}}
             </div>
             <div>
-               <form method="POST" action="">
+            موجودی: 
+               {{$food->stock}}
+
+            </div>
+            <div>
+               <form method="POST" action="{{route('order.add',$food)}}">
                   @csrf
                   <button type="submit" class="btn btn-primary">افزودن به سبد</button>
                </form>
