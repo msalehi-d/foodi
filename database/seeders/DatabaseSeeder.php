@@ -18,7 +18,7 @@ class DatabaseSeeder extends Seeder
             CategorySeeder::class,
             // FoodSeeder::class,
         ]);
-        Food::factory(20)->create();
+        Food::factory(30)->create();
         // \App\Models\Food::factory(10)->create();
 
 
