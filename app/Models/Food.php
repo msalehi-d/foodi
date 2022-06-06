@@ -12,6 +12,14 @@ class Food extends Model
 
     public function category()
     {
-        return $this->belongsTo(category::class,'category_id','id');
+        return $this->belongsTo(category::class, 'category_id', 'id');
+    }
+
+    public function getImageUrlAttribute()
+    {
+        if ($this->image)
+            return $this->image;
+
+            return config('app.asset_url').'/images/no-image.png';
     }
 }
