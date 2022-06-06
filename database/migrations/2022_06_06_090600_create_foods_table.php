@@ -22,6 +22,7 @@ class CreateFoodsTable extends Migration
             $table->unsignedInteger('regular_price')->nullable()->default(null);
             $table->unsignedInteger('sale_price')->nullable()->default(null);
             $table->unsignedTinyInteger('stock')->default(0);
+            $table->unsignedTinyInteger('preparation_time')->default(20);
             $table->timestamps();
         });
     }

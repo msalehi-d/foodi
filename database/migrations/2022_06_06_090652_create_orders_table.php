@@ -15,6 +15,9 @@ class CreateOrdersTable extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
+            $table->unsignedTinyInteger('status')->default(config('constants.orderStatus.pending'));
+            $table->string('address');
+            $table->foreignId('user_id')->constrained();
             $table->timestamps();
         });
     }
