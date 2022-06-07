@@ -14,6 +14,7 @@
                <th>تاریخ درخواست </th>
                <th>وضعیت </th>
                <th>قیمت</th>
+               <th>عملیات</th>
             </tr>
          </thead>
          <tbody>
@@ -29,11 +30,29 @@
                </td>
                <td>
                   {{$order->created_at}}
+               </td>
                <td>
                   {{$order->statusText}}
                </td>
                <td>
                   {{number_format($order->total_price)}}
+               </td>
+               <td>
+
+                  @if ($order->status != config('constants.orderStatus.completed'))
+                  <form action="{{route('admin.order.accept',$order)}}" method="POST">
+                     @csrf
+                     @method('PATCH')
+                     <button type="submit" class="btn btn-success">تایید</button>
+                  </form>
+                  @endif
+                  @if ($order->status != config('constants.orderStatus.cancelled'))
+                  <form action="{{route('admin.order.reject',$order)}}" method="POST">
+                     @csrf
+                     @method('PATCH')
+                     <button type="submit" class="btn btn-warning">لغو</button>
+                  </form>
+                  @endif
                </td>
 
             </tr>

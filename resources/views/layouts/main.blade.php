@@ -28,6 +28,11 @@
             <div class="col-4 d-flex justify-content-end align-items-center">
 
                @auth
+               @if (auth()->user()->role = config('constants.roles.admin'))
+               <a class="btn btn-sm btn-outline-secondary me-1" href="{{route('admin.order')}}">داشبورد</a>
+               <a class="btn btn-sm btn-outline-secondary me-1" href="{{route('admin.category.index')}}">دسته بندی ها</a>
+               <a class="btn btn-sm btn-outline-secondary me-1" href="{{route('admin.food.index')}}">غذاها</a>
+               @endif
                <a class="btn btn-sm btn-outline-secondary me-1" href="{{route('customer.order.show')}}">سبد خرید</a>
                <a class="btn btn-sm btn-outline-secondary" href="{{route('customer.account')}}">حساب کاربری</a>
                @else
@@ -36,7 +41,6 @@
             </div>
          </div>
       </header>
-
       <div class="nav-scroller py-1 mb-2">
          <nav class="nav d-flex justify-content-between">
             @foreach ($categories as $menuCategory)
@@ -45,17 +49,8 @@
          </nav>
       </div>
    </div>
-
+  
    <main class="container">
-      <!--div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
-         <div class="col-md-6 px-0">
-            <h1 class="display-4 fst-italic">عنوان تدوينة مميزة أطول</h1>
-            <p class="lead my-3">عدة أسطر نصية متعددة تعبر عن التدوية، وذلك
-               لإعلام القراء الجدد بسرعة وكفاءة حول أكثر الأشياء إثارة للاهتمام في
-               محتويات هذه التدوينة.</p>
-            <p class="lead mb-0"><a href="#" class="text-white fw-bold">أكمل القراءة...</a></p>
-         </div>
-      </div-->
       <div class="mt-3">
          @yield('contents')
       </div>
@@ -63,9 +58,10 @@
    </main>
 
    <footer class="blog-footer">
-      <p>تم تصميم نموذج المدونة لـ <a href="https://getbootstrap.com/">Bootstrap</a> بواسطة <a href="https://twitter.com/mdo"><bdi dir="ltr" lang="en">@mdo</bdi></a>.</p>
       <p>
-         <a href="#">عد إلى الأعلى</a>
+         کپی‌رایت
+      </p>
+         <a href="#">Foodi.com</a>
       </p>
    </footer>
 </body>

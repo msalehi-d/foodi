@@ -2,7 +2,7 @@
 @section('title',$food->name)
 @section('contents')
 <div class="row mb-2">
-   <div class="col-md-12">
+   <div class="col-md-8">
       <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
          <div class="col p-4 d-flex flex-column position-static">
             <h3 class="mb-0">
@@ -30,11 +30,12 @@
             </div>
          </div>
 
-         <div class="col-auto d-none d-lg-block">
-            <img src="{{$food->imageUrl}}" alt="{{$food->title}}">
-         </div>
+   
       </div>
    </div>
+   <div class="col-md-4">
+            <img class="img-fluid" src="{{$food->imageUrl}}" alt="{{$food->title}}">
+         </div>
 </div>
 
 

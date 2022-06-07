@@ -11,6 +11,7 @@
       <h3 class="p-2">
          سفارش شما
       </h3>
+      @if($order->items->isNotEmpty())
       <form action="{{route('customer.order.update',$order)}}" method="POST">
          @csrf
          @method('PATCH')
@@ -41,6 +42,7 @@
          </table>
          <button type="submit" class="btn btn-secondary">بروزرسانی سفارش</button>
       </form>
+      @endif
    </div>
    <div class="col-md-4 border p-2">
       مجموع:
