@@ -27,8 +27,8 @@ Route::get('/category/{category:slug}', [FoodController::class, 'category'])->na
 
 Route::get('/food/{food}', [FoodController::class, 'show'])->name('food.show');
 
-Route::name('admin.')->prefix('admin')->middleware(['auth'])->group(function () {
-    Route::get('orders', [AdminOrderController::class, 'index'])->name('order');
+Route::name('admin.')->prefix('admin')->middleware(['auth','can:view-dashboard'])->group(function () {
+    Route::get('orders', [AdminOrderController::class, 'index'])->name('order.index');
     Route::patch('order/{order}/accept', [AdminOrderController::class, 'accept'])->name('order.accept');
     Route::patch('order/{order}/reject', [AdminOrderController::class, 'reject'])->name('order.reject');
 

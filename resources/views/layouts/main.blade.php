@@ -29,7 +29,7 @@
 
                @auth
                @if (auth()->user()->role = config('constants.roles.admin'))
-               <a class="btn btn-sm btn-outline-secondary me-1" href="{{route('admin.order')}}">داشبورد</a>
+               <a class="btn btn-sm btn-outline-secondary me-1" href="{{route('admin.order.index')}}">داشبورد</a>
                <a class="btn btn-sm btn-outline-secondary me-1" href="{{route('admin.category.index')}}">دسته بندی ها</a>
                <a class="btn btn-sm btn-outline-secondary me-1" href="{{route('admin.food.index')}}">غذاها</a>
                @endif
