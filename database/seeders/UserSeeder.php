@@ -18,13 +18,13 @@ class UserSeeder extends Seeder
             [
                 'name' => 'محمد صالحی',
                 'email' => 'admin@yahoo.com',
-                'role' => 'admin',
+                'role' => config('constants.roles.admin'),
                 'password' => bcrypt('123'),
             ],
             [
                 'name' => 'رضا حسنی',
                 'email' => 'user@yahoo.com',
-                'role' => 'user',
+                'role' =>  config('constants.roles.customer'),
                 'password' => bcrypt('123'),
             ],
         ]);
