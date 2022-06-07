@@ -18,7 +18,7 @@ class Food extends Model
     public function getImageUrlAttribute()
     {
         if ($this->image)
-            return $this->image;
+            return '/storage/'.$this->image;
 
         return config('app.asset_url') . '/images/no-image.png';
     }

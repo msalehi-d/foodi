@@ -20,6 +20,8 @@ class AuthController extends Controller
         $credentials = $request->only('email', 'password');
         $remember = $request->get('remember') ? true : false;
         if (auth()->attempt($credentials, $remember)) {
+            if (auth()->user()->role == config('constants.roles.admin'))
+                return redirect(route('admin.order.index'));
             return redirect()->intended('home');
         }
         return back()->withErrors(['incorrect' => 'اطلاعات وارد شده صحیح نمی باشد']);
