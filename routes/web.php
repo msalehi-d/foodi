@@ -19,9 +19,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/login', [AuthController::class, 'login'])->name('login');
-Route::post('/login/check', [AuthController::class, 'loginCheck'])->name('login.check');
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('register', [AuthController::class, 'register'])->name('register');
+Route::post('register/check', [AuthController::class, 'registerCheck'])->name('register.check');
+Route::get('login', [AuthController::class, 'login'])->name('login');
+Route::post('login/check', [AuthController::class, 'loginCheck'])->name('login.check');
+Route::post('logout', [AuthController::class, 'logout'])->name('logout');
 
 Route::get('/category/{category:slug}', [FoodController::class, 'category'])->name('food.category');
 

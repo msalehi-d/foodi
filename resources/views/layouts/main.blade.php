@@ -19,9 +19,7 @@
    <div class="container">
       <header class="blog-header py-3">
          <div class="row flex-nowrap justify-content-between align-items-center">
-            <div class="col-4 pt-1">
-               <input class="form-control" type="text" name="search" placeholder="جستجو" id="">
-            </div>
+
             <div class="col-4 text-center">
                <a class="blog-header-logo text-dark text-decoration-none" href="/">Foodi</a>
             </div>
@@ -30,12 +28,18 @@
                @auth
                @if (auth()->user()->role = config('constants.roles.admin'))
                <a class="btn btn-sm btn-outline-secondary me-1" href="{{route('admin.order.index')}}">داشبورد</a>
-               <a class="btn btn-sm btn-outline-secondary me-1" href="{{route('admin.category.index')}}">دسته بندی ها</a>
+               <a class="btn btn-sm btn-outline-secondary me-1" href="{{route('admin.category.index')}}">دسته‌ها</a>
                <a class="btn btn-sm btn-outline-secondary me-1" href="{{route('admin.food.index')}}">غذاها</a>
-               @endif
-               <a class="btn btn-sm btn-outline-secondary me-1" href="{{route('customer.order.show')}}">سبد خرید</a>
-               <a class="btn btn-sm btn-outline-secondary" href="{{route('customer.account')}}">حساب کاربری</a>
                @else
+               <a class="btn btn-sm btn-outline-secondary" href="{{route('customer.account')}}">حساب</a>
+               @endif
+               <a class="btn btn-sm btn-outline-secondary me-1" href="{{route('customer.order.show')}}">سبد</a>
+               <form action="{{route('logout')}}" method="POST">
+                  @csrf
+                  <button type="submit" class="btn btn-sm btn-outline-secondary" href="{{route('logout')}}">خروج</a>
+               </form>
+               @else
+               <a class="btn btn-sm btn-outline-secondary" href="{{route('register')}}">ثبت نام</a>
                <a class="btn btn-sm btn-outline-secondary" href="{{route('login')}}">ورود</a>
                @endauth
             </div>
@@ -49,7 +53,7 @@
          </nav>
       </div>
    </div>
-  
+
    <main class="container">
       <div class="mt-3">
          @yield('contents')
@@ -61,7 +65,7 @@
       <p>
          کپی‌رایت
       </p>
-         <a href="#">Foodi.com</a>
+      <a href="#">Foodi.com</a>
       </p>
    </footer>
 </body>
